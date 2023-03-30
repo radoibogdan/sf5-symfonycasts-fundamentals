@@ -48,6 +48,8 @@ class QuestionController extends AbstractController
      */
     public function show($slug, MarkdownHelper $markdownHelper)
     {
+        throw new \Exception('bad');
+
         if ($this->isDebug) {
             $this->logger->info('Mode debug du QuestionController.');
         }
