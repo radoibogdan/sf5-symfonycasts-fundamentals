@@ -15,7 +15,9 @@ framework:
 #        app: cache.adapter.apcu
 
         # Cache pour tuto pour ne pas installer APCu
-        app: cache.adapter.array
+        # en dev un autre est utilisé, ecrase celui-ci dans /dev
+        # les '' ne sont nécessaires que si le param commence par %
+        app: '%cache_adapter_bogdan%'
 
 
         # Namespaced pools use the above "app" backend by default

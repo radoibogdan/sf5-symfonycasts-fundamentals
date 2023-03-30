@@ -1,0 +1,2 @@
+parameters:
+  cache_adapter_bogdan: cache.adapter.filesystem
