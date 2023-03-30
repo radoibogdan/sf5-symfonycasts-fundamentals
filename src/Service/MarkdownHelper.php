@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 
 class MarkdownHelper
@@ -19,17 +20,28 @@ class MarkdownHelper
      * @var bool
      */
     private $isDebug;
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
-    public function __construct(MarkdownParserInterface $markdownParser, CacheInterface $cache, bool $isDebug) {
+    public function __construct(MarkdownParserInterface $markdownParser, CacheInterface $cache, bool $isDebug, LoggerInterface $markdownLogger) {
 
         $this->markdownParser = $markdownParser;
         $this->cache = $cache;
         $this->isDebug = $isDebug;
-        dump($isDebug);
+        $this->logger = $markdownLogger;
     }
 
     public function parse(string $source): string
     {
+        // dump parametre dans services.yaml
+        // dump($this->isDebug);
+
+        if (strpos($source, 'cat')) {
+            $this->logger->info('Meow');
+        }
+
         if ($this->isDebug) {
             return $this->markdownParser->transformMarkdown($source);
         }

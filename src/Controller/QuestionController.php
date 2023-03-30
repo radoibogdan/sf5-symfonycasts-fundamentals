@@ -38,7 +38,7 @@ class QuestionController extends AbstractController
         ];
 
         // Trouve parametre dans packages/cache
-        dump($this->getParameter('cache_adapter_bogdan'));
+//        dump($this->getParameter('cache_adapter_bogdan'));
 
         $questionText = 'I\'ve been turned into a cat, any *thoughts* on how to turn back? While I\'m **adorable**, I don\'t really care for cat food.';
         $parsedQuestionText = $markdownHelper->parse($questionText);
