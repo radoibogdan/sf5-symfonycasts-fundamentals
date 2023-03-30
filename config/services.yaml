@@ -13,6 +13,10 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             bool $isDebug: '%kernel.debug%'
+            # var 1 - associer un service à $mdLogger
+            # Préfixe "@" => Donne moi le service qui a cet id
+            # Channel créé dans monolog.yaml
+            # Psr\Log\LoggerInterface $mdLogger: '@monolog.logger.markdown'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -35,3 +39,8 @@ services:
     ## App\Service\MarkdownHelper:
     ##     bind:
     ##         $isDebug: '%kernel.debug%'
+
+    ## var 2 - associer un service à $mdLogger
+    ## vérifier avec `php bin/console debug:autowiring log`
+    ## Psr\Log\LoggerInterface $mdLogger (monolog.logger.markdown)
+    Psr\Log\LoggerInterface $mdLogger: '@monolog.logger.markdown'

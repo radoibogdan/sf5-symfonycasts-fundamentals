@@ -1,2 +1,2 @@
 monolog:
-    channels: [markdown]
+    channels: [markdown] #creer channel pour markdown pour l'identifier
