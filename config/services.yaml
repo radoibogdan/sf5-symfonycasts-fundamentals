@@ -26,3 +26,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    ## Liste complete de paramentres
+    ## php bin/console debug:container --parameters (optional --env=prod/dev)
+    ## "bind" similaire à "arguments"
+    App\Service\MarkdownHelper:
+        bind:
+            $isDebug: '%kernel.debug%'
